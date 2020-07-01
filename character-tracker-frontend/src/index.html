@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" race="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" race="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="css/index.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+  <title>DOM Events</title>
+</head>
+<body class="black">
+  <div class="header red white-text">
+    <h1 class="center">DnD Character Tracker</h1>
+  </div>
+
+  <div class="row">
+    <div class="col s12 m6 l6">
+      <form id="character-form" data-action="create">
+        <div class="input-field">
+          <input type="text" name="name" id="name">
+          <label for="name">Name:</label>
+        </div>
+
+        <div class="input-field">
+          <input type="text" name="klass" id="klass">
+          <label for="klass">Class:</label>
+        </div>
+
+        
+        <div class="input-field">
+            <input type="text" name="race" id="race"></input>
+            <label for="race">Race:</label>  
+        </div>
+
+        <input type="submit" value="Create Character" class="btn">
+      </form>
+    </div>
+
+    <div class="col s12 m6 l6 character-lists">
+      <h3 class="center red white-text">Character list</h3>
+    </div>
+  </div>
+
+ 
+</body>
+<script src="index.js"></script>
+<script src="character.js"></script>
+</html>
