@@ -3,10 +3,22 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+#   movies = Movie.create({ name: 'Star Wars' }, { name: 'Lord of the Rings' })
 #   Character.create(name: 'Luke', movie: movies.first)
 Character.create(
-    name: ["Ragnoros", "Illidan", "Malganis"],
-    klass: ["Mage", "Thief", "Paladin"],
-    race: ["Halfling", "Half-Demon", "Half-Orc"]
+    name: "Malganis",
+    klass: "Paladin",
+    race: "Half-Orc"
+)
+
+Character.create(
+    name: "Illidan",
+    klass: "Thief",
+    race: "Half-Demon"
+)
+
+Character.create(
+    name: "Ragnoros",
+    klass: "Mage",
+    race: "Halfling"
 )
