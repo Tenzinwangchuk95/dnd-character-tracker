@@ -1,7 +1,8 @@
 class Character {
     static all = []
 
-    constructor(name, klass, race){
+    constructor(id, name, klass, race){
+        this.id = id
         this.name = name
         this.klass = klass
         this.race = race
@@ -10,10 +11,11 @@ class Character {
 
     static createCharacters(data){
         data.forEach(function(character){
+            let id = character.id
             let name = character.name
             let klass = character.klass
             let race = character.race
-            new Character(name, klass, race)
+            new Character(id, name, klass, race)
         })
     }
 
@@ -27,6 +29,7 @@ class Character {
         Character.all.forEach(function(character){
         Character.attachCharacter(character.characterHTML())
         Character.all = []
+        addItemFormEvent()
         })
     }
 

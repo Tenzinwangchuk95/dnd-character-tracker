@@ -3,6 +3,8 @@ const formName = document.getElementById("name")
 const formKlass = document.getElementById("klass")
 const formRace = document.getElementById("race")
 const characterForm = document.getElementById("character-form")
+const characterList = document.querySelector(".character-list")
+//const addItemButton = document.querySelectorAll 
 
 class API{
 

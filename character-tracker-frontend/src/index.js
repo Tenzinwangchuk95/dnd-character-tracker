@@ -61,3 +61,33 @@ function loadFormListener(){
   })
 }
 
+// function addItemFormEvent(){
+//   characterList.querySelectorAll(".add-item").forEach(button => {
+//     button.addEventListener("click", event => {
+//       event.target.parentElement.innerHTML += Item.itemForm
+//     })
+//   })
+// }
+
+function addItemFormEvent(){
+  const itemButtons = characterList.querySelectorAll(".add-item")
+  
+  for (const itemButton of itemButtons){
+    
+    itemButton.addEventListener("click", addItemForm)
+  }
+}
+
+function addItemForm(e){
+  
+  const cardID = e.target.parentElement.id
+  debugger
+  e.target.parentElement.innerHTML += Item.itemForm()
+  loadItemFormListener()
+}
+
+function loadItemFormListener(){
+  characterList.addEventListener("submit", function(event){
+    event.preventDefault()
+  })
+}
