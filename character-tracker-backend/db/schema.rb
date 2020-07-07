@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(version: 2020_07_01_142758) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
+    t.integer "character_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_items_on_character_id"
   end
 
+  add_foreign_key "items", "characters"
 end

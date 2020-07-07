@@ -22,3 +22,30 @@ Character.create(
     klass: "Mage",
     race: "Halfling"
 )
+
+Item.create(
+    name: "Potion of Healing",
+    character: Character.all.sample
+)
+
+Item.create(
+    name: "Sword of 1000 Thruths",
+    character: Character.all.sample
+)
+
+Item.create(
+    name: "Leather Belt",
+    character: Character.all.sample
+)
+
+Item.create(
+    name: "Crown of the Litch King",
+    character: Character.all.sample
+)
+
+Item.create(
+    name: "Doomhammer",
+    character: Character.all.sample
+)
+
+

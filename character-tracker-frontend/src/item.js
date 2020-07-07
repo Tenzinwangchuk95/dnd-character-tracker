@@ -4,6 +4,8 @@ class Item {
         this.name = name
     }
 
+
+
     static itemForm(){
         return `
         <form id="item-form" data-action="create">
@@ -17,6 +19,8 @@ class Item {
         `
     }
 
-    
+    static itemHTML(){
+        
+    }
 
 }
