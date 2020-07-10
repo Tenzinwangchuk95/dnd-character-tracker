@@ -46,6 +46,6 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def stat_params
-      params.require(:item).permit(:strength, :intelligence, :wisdom, :dexterity, :constitution, :charisma)
+      params.require(:item).permit(:name, :character_id)
     end
 end

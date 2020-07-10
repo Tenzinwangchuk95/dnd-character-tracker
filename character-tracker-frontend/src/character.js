@@ -1,7 +1,7 @@
 class Character {
     static all = []
 
-    constructor(id, name, klass, race, item = " "){
+    constructor(id, name, klass, race, item){
         this.id = id
         this.name = name
         this.klass = klass
@@ -22,7 +22,7 @@ class Character {
             character.items.forEach(function(e){
                 item.push(e.name)
             })
-            debugger
+            
             new Character(id, name, klass, race, item)
         })
     }
@@ -40,18 +40,20 @@ class Character {
         })
         Character.all = []
         addItemFormEvent()
+        updateEventListener()
+        deleteEventListener()
     }
 
     characterHTML(){
-        debugger
+        
         return `
         <div class="card">
           <div class="card-content" id=${this.id}>
-            <span class="card-name"><p>Name: ${this.name}</p></span>
-            <span class="card-klass"><p>Class: ${this.klass}</p></span>
-            <span class="card-race"><p>Race: ${this.race}</p></span>
-            <span class="card-items"></span>
-            <button class="add-item">Add Item</button>
+            <lable>Name:</lable><span class="card-name"> ${this.name}</span><br>
+            <lable>Class:</lable><span class="card-klass"> ${this.klass}</span><br>
+            <lable>Race:</lable><span class="card-race"> ${this.race}</span><br>
+            <lable>Items:</lable><span class="card-items"> ${Item.itemHTML(this.item)} </span>
+            <button class="add-item">Add Item</button><br>
             <button class="update">Update</button>
             <button class="delete">Delete</button>
           </div>

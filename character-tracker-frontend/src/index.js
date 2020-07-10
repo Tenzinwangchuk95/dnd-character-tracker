@@ -1,65 +1,45 @@
 document.addEventListener("DOMContentLoaded", function(){
     API.loadCharaters()
-    loadFormListener()
+    API.loadFormListener()
+    //API.loadItemFormListener()
+    updateEventListener()
 
 })
 
 function getInfo(){
-    return{
-        name: formName.value,
-        klass: formKlass.value,
-        race: formRace.value
+    if (formItem.value === ""){
+      return {
+        'name': formName.value,
+        'klass': formKlass.value,
+        'race': formRace.value
+      }
     }
+    else {
+      return{
+        'name': formName.value,
+        'klass': formKlass.value,
+        'race': formRace.value,
+        'items_attributes': [{'name': formItem.value}]
+      }
+    }
+}
+
+function itemInfo(){
+  
+  return{
+    name: formItemName.value
+  }
 }
 function clearForm(){
     formName.value = ""
     formKlass.value = ""
     formRace.value = ""
+    formItem.value = ""
     characterForm.dataset.action = "create"
     delete characterForm.dataset.id
     document.querySelector(".btn").value = "Create Character"
 }
 
-function loadFormListener(){
-  characterForm.addEventListener("submit", function(event){
-    event.preventDefault()
-    const characterInfo = getInfo()
-    let options
-    let url
-    if (characterForm.dataset.action === "create"){
-      options ={
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(characterInfo)
-      }
-      url = baseURL
-    }else if (characterForm.dataset.action === "update"){
-      options ={
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(characterInfo)
-      }
-      url = `${baseURL}/${characterForm.dataset.id}`
-    }
-    fetch(url, options)
-    .then(resp => resp.json())
-    .then(data => {
-      if(!data.errors){
-        debugger
-        clearForm()
-        API.loadCharaters()
-      }
-      else{
-        throw new Error( `${data.errors}`)
-      }      
-    })
-    .catch(alert)
-  })
-}
 
 // function addItemFormEvent(){
 //   characterList.querySelectorAll(".add-item").forEach(button => {
@@ -73,21 +53,38 @@ function addItemFormEvent(){
   const itemButtons = characterList.querySelectorAll(".add-item")
   
   for (const itemButton of itemButtons){
-    
-    itemButton.addEventListener("click", addItemForm)
+    itemButton.addEventListener("click", e => {
+      const cardID = e.target.parentElement.id
+      e.target.parentElement.innerHTML += Item.itemForm()
+      API.addItemFormListener()
+    })
+  }
+  
+}
+
+function updateEventListener(){
+  debugger
+  const updateButtons = characterList.querySelectorAll(".update")
+  for (const updateButton of updateButtons){
+    updateButton.addEventListener("click", event =>{
+      const [name, klass, race] = event.target.parentElement.querySelectorAll("span")
+      // insert the data on the form
+      formName.value = name.innerText
+      formKlass.value = klass.innerText
+      formRace.value = race.innerText
+      characterForm.dataset.id = event.target.parentElement.id
+      characterForm.dataset.action = "update"
+      document.querySelector(".btn").value = "Update Character"
+    })
   }
 }
 
-function addItemForm(e){
-  
-  const cardID = e.target.parentElement.id
+function deleteEventListener(){
   debugger
-  e.target.parentElement.innerHTML += Item.itemForm()
-  loadItemFormListener()
-}
-
-function loadItemFormListener(){
-  characterList.addEventListener("submit", function(event){
-    event.preventDefault()
-  })
+  const deleteButtons = characterList.querySelectorAll(".delete")
+  for (const deleteButton of deleteButtons){
+    deleteButton.addEventListener("click", event =>{
+      API.deleteCharater(event.target)
+    })
+  }
 }
