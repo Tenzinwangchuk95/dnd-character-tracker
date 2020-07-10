@@ -63,7 +63,7 @@ function addItemFormEvent(){
 }
 
 function updateEventListener(){
-  debugger
+  
   const updateButtons = characterList.querySelectorAll(".update")
   for (const updateButton of updateButtons){
     updateButton.addEventListener("click", event =>{
@@ -80,7 +80,7 @@ function updateEventListener(){
 }
 
 function deleteEventListener(){
-  debugger
+  
   const deleteButtons = characterList.querySelectorAll(".delete")
   for (const deleteButton of deleteButtons){
     deleteButton.addEventListener("click", event =>{

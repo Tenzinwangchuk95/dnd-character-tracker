@@ -17,7 +17,7 @@ class API{
 
     // fetch call to delete Character
     static async deleteCharater(button){
-        debugger
+        
         let options = {
         method: 'DELETE',
         headers: {
@@ -58,7 +58,7 @@ class API{
             }
             url = `${baseURL}/${characterForm.dataset.id}`
         }
-        debugger
+        
         fetch(url, options)
         .then(resp => resp.json())
         .then(data => {
@@ -77,7 +77,7 @@ class API{
     //fetch call to add Item
         
     static addItemFormListener(){
-        debugger
+        
         const itemForm = document.getElementById("item-form")
         
         
@@ -87,7 +87,7 @@ class API{
             const itemFormInfo = {items_attributes: [{name: document.getElementById("new-item").value, character_id: itemFormID}]}
             let options
             let url
-            debugger
+           
             options = {
             method: 'PATCH',
             headers: {
