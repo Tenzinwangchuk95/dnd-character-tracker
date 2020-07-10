@@ -23,29 +23,21 @@ Character.create(
     race: "Halfling"
 )
 
-Item.create(
-    name: "Potion of Healing",
-    character: Character.all.sample
-)
 
 Item.create(
     name: "Sword of 1000 Thruths",
-    character: Character.all.sample
+    character: Character.all[1]
 )
 
 Item.create(
     name: "Leather Belt",
-    character: Character.all.sample
+    character: Character.all[2]
 )
 
 Item.create(
     name: "Crown of the Litch King",
-    character: Character.all.sample
+    character: Character.all[0]
 )
 
-Item.create(
-    name: "Doomhammer",
-    character: Character.all.sample
-)
 
 
