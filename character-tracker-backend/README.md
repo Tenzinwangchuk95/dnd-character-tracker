@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DnD Character and Item Tracker
+==============================
 
-Things you may want to cover:
+Description
+-----------
+This SPA allows the user to create, update, and delete characters. Aswell as equip them with items.
 
-* Ruby version
 
-* System dependencies
+Getting Started
+---------------
 
-* Configuration
+Run rails s within the character-tracker-backend directory. Then open index.html within your browser.
 
-* Database creation
 
-* Database initialization
+Prerequisites
+-------------
+ruby 2.6.1
+rails 6.0.3
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Installing
+----------
+Run bundle install.
 
-* Deployment instructions
 
-* ...
+Authors
+-------
+Tenzin Wangchuk - Initial work
+
+
+License
+-------
+This project is licensed under the MIT License
+
